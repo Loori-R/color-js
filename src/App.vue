@@ -1,28 +1,65 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="cj-main">
+    <div class="cj-main-form">
+      <label class="cj-main-form__label" for="color">color hex</label>
+      <input class="cj-main-form__input"
+             autocomplete="off"
+             id="color"
+             v-model="color"
+             type="text"
+             placeholder="#FFFFFF">
+    </div>
+    <div class="cj-main-form cj-main-form_name">
+      <label class="cj-main-form__label">color name</label>
+      <div class="cj-main-form__input cj-main-form__input_name">{{ colorName }}</div>
+    </div>
+    <div class="cj-main-color" :style="{background: backgroundColor}"/>
+    <div class="cj-main-license__button" @click="showLicense = !showLicense">
+      Display License Information
+    </div>
+    <div class="cj-main-license" v-if="showLicense">
+      <p>Script Created by Chirag Mehta -
+        <a href="http://chir.ag/projects/ntc">
+        http://chir.ag/projects/ntc
+      </a>
+      </p>
+      <p>
+        This script is released under the: Creative Commons License:
+        <br/>
+        Attribution 2.5
+        <a href="http://creativecommons.org/licenses/by/2.5/">
+          http://creativecommons.org/licenses/by/2.5/
+        </a>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ntc from '@/ntc'
+import {kebabCase, toUpper} from 'lodash'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      color: '',
+      showLicense: false
+    }
+  },
+  computed: {
+    backgroundColor () {
+      return this.color.includes('#') ? this.color : '#' + this.color
+    },
+    colorName () {
+      const info = ntc.name(this.color)
+      const name = `$color-${kebabCase(info[1])}: ${toUpper(this.backgroundColor)};`
+      return info[1] ? name : ''
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url('./style.css');
 </style>
