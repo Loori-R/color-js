@@ -15,6 +15,7 @@
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(auto-fill, auto);
     margin: auto;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .cj-main-form {
