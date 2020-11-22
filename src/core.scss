@@ -10,3 +10,31 @@ a:active {
 a:hover {
   opacity: 0.8;
 }
+
+.cj-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  box-sizing: border-box;
+  transition: 0.3s;
+  height: 44px;
+
+  &:focus {
+    border-color: #3275F7;
+  }
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.2)
+  }
+}
+
+.cj-label {
+  display: block;
+  color: rgba(0, 0, 0, 0.3);
+  text-align: left;
+  font-size: 12px;
+  padding: 2px;
+}

@@ -36,7 +36,6 @@ export default {
 <style lang="scss" scoped>
 
 .cj-license {
-  grid-column: 1/3;
   color: rgba(0, 0, 0, 0.3);
   font-size: 10px;
 
