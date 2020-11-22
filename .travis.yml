@@ -1,7 +1,5 @@
 language: generic # don't install any environment
 
-before_install: bash ./before_deploy.sh
-
 script: bash ./deploy.sh
 env:
   global:
