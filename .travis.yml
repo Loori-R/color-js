@@ -1,8 +1,5 @@
 language: generic # don't install any environment
 
-addons:
-  ssh_known_hosts:
-    - 140.82.114.4
 script: bash ./deploy.sh
 env:
   global:
