@@ -6,7 +6,8 @@
                       :saved="true"
                       :key="savedColor.color"
                       :color="savedColor.color"
-                      :color-name="savedColor.name"/>
+                      :color-name="savedColor.name"
+                      @updateColors="setSavedColors"/>
     <LicenseInfo/>
   </div>
 </template>
@@ -37,7 +38,6 @@ export default {
     colorName () {
       const info = ntc.name(this.color)
       const name = `$color-${kebabCase(info[1])}: ${toUpper(this.backgroundColor)};`
-      console.log(info[1].includes('Invalid') ? '' : name)
       return info[1].includes('Invalid') ? '' : name
     }
   },
